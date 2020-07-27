@@ -1,7 +1,10 @@
 import React, {createRef, useState} from 'react';
 import AuthCalls from "../../services/AuthCalls";
+import {useHistory} from "react-router-dom";
 
 const AuthPage = () => {
+
+    const history = useHistory();
     const regUsername = createRef();
     const regPassword = createRef();
     const regEmail = createRef();
@@ -15,15 +18,31 @@ const AuthPage = () => {
                     "email": regEmail.current.value
         };
         let response = await AuthCalls.register(user);
-        console.log(response)
+        try {
+            if (response.status===200){
+                alert("registration success!")
+                handleLogin(regUsername.current.value,regPassword.current.value)
+            }
+        }catch(e){
+            console.log(e);
+            alert("registration failed! Invalid username or password")
+        }
     };
 
-    const  handleLogin=async ()=> {
+    const  handleLogin=async (username,password)=> {
         let user = {"username":username,
             "password": password,
         };
-        let response = await AuthCalls.login(user);
-        console.log(response);
+        try {
+            let response = await AuthCalls.login(user);
+            if (response.status===200){
+                localStorage.setItem("username",response.data.username)
+                history.push("/");
+            }
+        }catch (e) {
+            console.log(e);
+            alert("Login failed! Invalid username or password")
+        }
     };
 
     return (
@@ -39,7 +58,7 @@ const AuthPage = () => {
                 <h2>Login</h2>
                 <input placeholder={"username"} onChange={event => setUserName(event.target.value)}/>
                 <input placeholder={"password"} onChange={event => setPassword(event.target.value)}/>
-                <button onClick={handleLogin}>login</button>
+                <button onClick={event => handleLogin(username,password)}>login</button>
             </div>
         </div>
     );
