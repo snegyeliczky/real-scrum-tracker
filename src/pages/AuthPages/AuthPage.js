@@ -36,7 +36,7 @@ const AuthPage = () => {
         try {
             let response = await AuthCalls.login(user);
             if (response.status===200){
-                localStorage.setItem("username",response.data.username)
+                localStorage.setItem("userData",JSON.stringify(response.data));
                 history.push("/");
             }
         }catch (e) {
