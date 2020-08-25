@@ -8,7 +8,7 @@ export default {
     },
 
     login : async (user) =>{
-        let axiosResponse = await axios.post("http://localhost:8762/auth/signin",user);
+        let axiosResponse = await axios.post("http://localhost:8762/auth/signin",user,{withCredentials: true} );
         return axiosResponse;
     }
 }

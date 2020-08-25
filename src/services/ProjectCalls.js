@@ -4,7 +4,9 @@ export default {
 
 
     getCompanyWithAllProjects : async (userCredentials)=>{
-        let axiosResponse = await axios.post("http://localhost:8762/company-service/company-with-projects",userCredentials);
+        let axiosResponse = await axios.post("http://localhost:8762/company-service/company-with-projects",userCredentials,{
+            withCredentials: true,
+            });
         return axiosResponse;
     }
 
