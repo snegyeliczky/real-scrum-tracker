@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {} from 'react';
 import ProjectCalls from "../services/ProjectCalls";
 
 const MainPage = () => {
@@ -13,15 +13,16 @@ const MainPage = () => {
         console.log(companyWithAllProjects.data)
     };
 
-    useEffect(()=>{
+    const getProject =()=>{
         let userFromLocalstorage = getUserFromLocalstorage();
         console.log(userFromLocalstorage);
         getCompanyWithProjects(userFromLocalstorage);
-    },[]);
+    };
 
     return (
         <div>
-            Hello {getUserFromLocalstorage().username}
+            Hello {getUserFromLocalstorage().username}<br/>
+            <button onClick={getProject}>get project</button>
         </div>
     );
 };
