@@ -16,5 +16,10 @@ export default {
             SameSite:"none"
         });
         return axiosResponse;
+    },
+
+    logout : async () =>{
+        let axiosResponse = await axios.get("http://localhost:8762/auth/logout");
+        return axiosResponse;
     }
 }
