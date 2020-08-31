@@ -6,6 +6,7 @@ import {useHistory} from "react-router-dom";
 const MainPage = () => {
 
     const history = useHistory();
+    const user = getUserFromLocalstorage();
 
     function getUserFromLocalstorage() {
         let userCred = localStorage.getItem("userData");
@@ -30,7 +31,7 @@ const MainPage = () => {
 
     return (
         <div>
-            Hello {getUserFromLocalstorage().username }<br/>
+            Hello { user? user.username:'' }<br/>
             <button onClick={getProject}>get project</button>
             <button onClick={logout}>Log Out</button>
         </div>
