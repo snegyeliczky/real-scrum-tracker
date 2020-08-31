@@ -1,11 +1,10 @@
 import React from 'react';
 import ProjectCalls from "../services/ProjectCalls";
-import AuthCalls from "../services/AuthCalls";
-import {useHistory} from "react-router-dom";
+
 
 const MainPage = () => {
 
-    const history = useHistory();
+
     const user = getUserFromLocalstorage();
 
     function getUserFromLocalstorage() {
@@ -23,17 +22,12 @@ const MainPage = () => {
         getCompanyWithProjects(userFromLocalstorage);
     };
 
-    async function logout() {
-        await AuthCalls.logout();
-        localStorage.clear();
-        history.push("/auth");
-    }
+
 
     return (
         <div>
             Hello { user? user.username:'' }<br/>
             <button onClick={getProject}>get project</button>
-            <button onClick={logout}>Log Out</button>
         </div>
     );
 };

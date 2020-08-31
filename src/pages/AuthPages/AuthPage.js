@@ -1,6 +1,7 @@
 import React, {createRef, useState} from 'react';
 import AuthCalls from "../../services/AuthCalls";
 import {useHistory} from "react-router-dom";
+import "../../assets/styles/AuthStyle.css" ;
 
 const AuthPage = () => {
 
@@ -47,14 +48,14 @@ const AuthPage = () => {
 
     return (
         <div>
-            <div>
+            <div className={"auth-container"}>
                 <h2>Register</h2>
                 <input placeholder={"username"} ref={regUsername}/>
                 <input placeholder={"password"} ref={regPassword}/>
                 <input placeholder={"email"} ref={regEmail}/>
                 <button onClick={handleReg}>Register</button>
             </div>
-            <div>
+            <div className={"auth-container"}>
                 <h2>Login</h2>
                 <input placeholder={"username"} onChange={event => setUserName(event.target.value)}/>
                 <input placeholder={"password"} onChange={event => setPassword(event.target.value)}/>
