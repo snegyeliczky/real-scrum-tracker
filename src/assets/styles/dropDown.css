@@ -1,0 +1,116 @@
+:root {
+    --toggler-width: 90%;
+    --toggler-height: 40px;
+    --toggler-bg-color: #da110a;
+    --toggler-active-bg-color: #08853c;
+    --menu-starting-top: 0px;
+    --menu-ending-top: 45px;
+    --menu-width: 90%;
+    --menu-max-height: 200px;
+    --fade-from-color: transparent;
+    --fade-to-color: black;
+    --timeout: 400ms;
+}
+
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.sub-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.toggler {
+    position: relative;
+    z-index: 2;
+    width: var(--toggler-width);
+    height: var(--toggler-height);
+    background-color: var(--toggler-bg-color);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 350ms;
+}
+
+.toggler--active {
+    background-color: var(--toggler-active-bg-color);
+}
+
+.menu {
+    position: absolute;
+    text-align: center;
+    top: var(--menu-ending-top);
+    z-index: 1;
+    box-sizing: border-box;
+    width: var(--menu-width);
+    padding: 0 20px;
+    overflow: hidden;
+
+    border-radius: 5px;
+}
+
+.list {
+    padding: 0;
+
+}
+
+.list_item {
+    margin: 10px;
+    background-color: pink;
+    padding: 5px 0;
+}
+
+.submenu{
+    width: 90%;
+}
+.sublist{
+    width: 100%;
+}
+.sublist-item{
+    width: 100%;
+    background-color: deeppink;
+}
+
+
+
+.display-enter {
+    top: var(--menu-starting-top);
+    width: var(--toggler-width);
+    max-height: var(--toggler-height);
+    color: var(--fade-from-color);
+
+}
+
+.display-enter-active {
+    top: var(--menu-ending-top);
+    width: var(--menu-width);
+    max-height: var(--menu-max-height);
+    color: var(--fade-to-color);
+    background-color: var(--menu-bg-color);
+    transition: all var(--timeout);
+}
+
+.display-exit {
+    top: var(--menu-ending-top);
+    width: var(--menu-width);
+    max-height: var(--menu-max-height);
+    color: var(--fade-to-color);
+    background-color: var(--menu-bg-color);
+}
+
+.display-exit-active {
+    top: var(--menu-starting-top);
+    width: var(--toggler-width);
+    max-height: var(--toggler-height);
+    color: var(--fade-from-color);
+
+    transition: all var(--timeout);
+}
