@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import "../../src/assets/styles/main.css";
 import {useParams} from "react-router";
 import ProjectCalls from "../services/ProjectCalls";
@@ -14,16 +14,18 @@ const ProjectPage = () => {
         return projectById.data
     };
 
-    const saveProject = ()=>{
+
+
+    const saveProject = useCallback( ()=>{
         getProject(id)
             .then(response =>{
                 console.log(response);
                 setProject(response)})
-    };
+    },[id]);
 
     useEffect(()=>{
         saveProject();
-        },[]
+        },[saveProject]
     );
 
     return (
