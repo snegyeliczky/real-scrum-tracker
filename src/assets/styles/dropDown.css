@@ -47,7 +47,6 @@
     position: absolute;
     text-align: center;
     top: var(--menu-ending-top);
-    z-index: 1;
     box-sizing: border-box;
     width: var(--menu-width);
     padding: 0 20px;
@@ -113,7 +112,6 @@
     display: inline-block;
     width: 90%;
     position: relative;
-    z-index: -1;
 }
 
 .sublist-item{
@@ -121,6 +119,7 @@
     margin: 5px;
     background-color: deeppink;
     border-radius: 20px;
+    cursor: context-menu;
 
 }
 
@@ -128,6 +127,7 @@
     top: -40px;
     width: var(--sub-menu-starter-width);
     max-height: 160px;
+    z-index: -1;
 }
 
 .sub-display-enter-active {
@@ -135,6 +135,7 @@
     width: var(--sub-menu-width);
     color: var(--fade-to-color);
     transition: all var(--timeout);
+    z-index: -1;
 }
 
 .sub-display-exit{
@@ -142,6 +143,7 @@
     width: var(--sub-menu-width);
     max-height: var(--menu-max-height);
     color: var(--fade-to-color);
+    z-index: -1;
 }
 
 .sub-display-exit-active {
@@ -149,5 +151,6 @@
     width: var(--sub-menu-starter-width);
     color: var(--fade-from-color);
     transition: var(--timeout);
+    z-index: -1;
 }
 

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ProjectCalls from "../services/ProjectCalls";
 import cx from 'classnames';
 import "../../src/assets/styles/dropDown.css";
+import "../../src/assets/styles/main.css"
 import {CSSTransition} from 'react-transition-group';
 import CompanyWithProjects from "../components/CompanyWithProjects";
 
@@ -38,7 +39,7 @@ const MainPage = () => {
 
 
     return (
-        <div>
+        <h2 className={"welcome"}>
             Hello { user? user.username:'' }<br/>
 
             <div className="container">
@@ -68,7 +69,7 @@ const MainPage = () => {
                 </CSSTransition>
             </div>
 
-        </div>
+        </h2>
     );
 };
 

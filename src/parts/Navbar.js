@@ -14,9 +14,14 @@ const Navbar = () => {
         history.push("/auth");
     }
 
+    async function goHome() {
+        history.push("/");
+    }
+
     return (
         <Menu mode="horizontal" style={{textAlign:'center'}}>
             <Menu.Item onClick={logout}>Log Out</Menu.Item>
+            <Menu.Item onClick={goHome}>Home</Menu.Item>
 
         </Menu>
     );

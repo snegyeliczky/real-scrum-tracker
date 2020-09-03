@@ -15,7 +15,14 @@ export default {
     },
 
     getProjectForCompany : async (companiId) =>{
-        let axiosResponse = await axios.get("http://localhost:8762/project-service/project/"+companiId);
+        let axiosResponse = await axios.get("http://localhost:8762/project-service/project/company/"+companiId);
         return axiosResponse;
+    },
+
+    getProjectById: async (projectId)=> {
+        let axiosResponse = await axios.get("http://localhost:8762/project-service/project/"+projectId);
+        console.log("project resp ",axiosResponse);
+        return axiosResponse;
+
     }
 }
